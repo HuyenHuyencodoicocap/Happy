@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>19/11 - Marcom - Tuyển sinh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap&subset=vietnamese" rel="stylesheet">
+<style>
+:root{--bg1:#2a0e5c;--bg2:#6d28d9;--bg3:#c026d3;--card:rgba(255,255,255,.14);--text:#fff;--soft:#e9d5ff;--accent:#fde047;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#14072f;--bg2:#4c1d95;--bg3:#86198f}}
+:root[data-theme="dark"]{--bg1:#14072f;--bg2:#4c1d95;--bg3:#86198f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--text);font-family:"Quicksand","Segoe UI",system-ui,sans-serif;background:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3));background-attachment:fixed;overflow-x:hidden}
+#sky{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.balloon{position:absolute;bottom:-140px;pointer-events:auto;cursor:pointer;animation:rise linear forwards;user-select:none;-webkit-tap-highlight-color:transparent}
+.balloon i{display:block;width:100%;height:100%;border-radius:50% 50% 48% 48%;box-shadow:inset -8px -10px 0 rgba(0,0,0,.12),inset 8px 8px 0 rgba(255,255,255,.3);position:relative}
+.balloon i::after{content:"";position:absolute;left:50%;bottom:-9px;margin-left:-6px;border:6px solid transparent;border-bottom-color:inherit;border-top:0}
+.balloon b{position:absolute;left:50%;top:100%;width:1.5px;height:50px;background:rgba(255,255,255,.55);transform:translateX(-50%)}
+.balloon:hover{filter:brightness(1.15)}
+@keyframes rise{to{transform:translateY(calc(-100vh - 320px))}}
+.pop{position:fixed;width:9px;height:9px;border-radius:50%;pointer-events:none;z-index:50;animation:burst .8s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--dx),var(--dy)) rotate(360deg);opacity:0}}
+main{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:28px 18px 60px}
+header{text-align:center;padding:30px 0 10px}
+.tag{display:inline-block;padding:6px 16px;border-radius:99px;background:var(--card);backdrop-filter:blur(8px);font-weight:700;letter-spacing:.5px;font-size:.9rem}
+h1{font-family:"Baloo 2","Comic Sans MS","Quicksand",cursive,sans-serif;font-size:clamp(2.4rem,8vw,4.8rem);line-height:1.05;margin:16px 0 8px;font-weight:800;letter-spacing:.5px;text-shadow:0 4px 0 rgba(76,29,149,.55),0 10px 24px rgba(0,0,0,.25);transform:rotate(-2deg);animation:bob 3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(1.5deg) translateY(-8px)}}
+h1 span{display:inline-block;text-shadow:none;filter:drop-shadow(0 4px 0 rgba(76,29,149,.55))}
+h1 span{background:linear-gradient(90deg,#fde047,#f9a8d4,#a5f3fc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--soft);font-size:1.1rem;max-width:560px;margin:0 auto 18px}
+.btn{border:0;cursor:pointer;font:inherit;font-weight:700;padding:12px 24px;border-radius:99px;color:#3b0764;background:var(--accent);box-shadow:0 6px 0 #ca8a04,0 10px 20px rgba(0,0,0,.25);transition:transform .1s}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 #ca8a04}
+.score{margin-top:14px;color:var(--soft);font-size:.95rem}
+h2{text-align:center;font-size:1.7rem;margin:50px 0 22px}
+.heroes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.hero{background:var(--card);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);border-radius:26px;padding:26px 18px;text-align:center;transition:transform .25s}
+.hero:hover{transform:translateY(-8px) rotate(-1.5deg)}
+.ava{position:relative;width:132px;height:132px;margin:0 auto 14px;border-radius:50%;padding:5px;background:conic-gradient(#fde047,#f472b6,#a78bfa,#67e8f9,#fde047);cursor:pointer}
+.ava .in{width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#db2777);display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:800;overflow:hidden}
+.ava img{width:100%;height:100%;object-fit:cover}
+.ava em{position:absolute;right:-2px;bottom:4px;background:#fff;color:#6d28d9;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:1rem}
+.hero h3{margin:6px 0 2px;font-size:1.35rem}
+.hero p{margin:0;color:var(--soft);font-size:.95rem}
+.hint{text-align:center;color:var(--soft);font-size:.85rem;margin-top:12px}
+.wishes{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+.wish{background:#fff;color:#3b0764;border-radius:22px;padding:22px;position:relative;box-shadow:0 14px 30px rgba(0,0,0,.25);transition:transform .25s}
+.wish:nth-child(1){transform:rotate(-1.5deg)}.wish:nth-child(2){transform:rotate(1deg)}.wish:nth-child(3){transform:rotate(-.8deg)}.wish:nth-child(4){transform:rotate(1.2deg)}
+.wish:hover{transform:rotate(0) scale(1.03)}
+.wish .who{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.wish .pic{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+.wish .who b{font-size:1.05rem}
+.wish .who small{display:block;color:#7e22ce;font-weight:600}
+.wish q{display:block;quotes:none;line-height:1.6;font-size:1.02rem}
+.wish .heart{position:absolute;top:-12px;right:16px;font-size:1.6rem;cursor:pointer;transition:transform .2s}
+.wish .heart:hover{transform:scale(1.4) rotate(15deg)}
+.wish .likes{margin-top:12px;font-size:.85rem;color:#a21caf;font-weight:700}
+footer{text-align:center;margin-top:50px;color:var(--soft)}
+@media (prefers-reduced-motion:reduce){.balloon{animation-duration:40s!important}}
+</style>
+</head>
+<body>
+<div id="sky" aria-hidden="true"></div>
+<main>
+<header>
+  <span class="tag">🎉 19/11 - Marcom - Tuyển sinh</span>
+  <h1>Chúc mừng <span>những người đàn ông</span> của team!</h1>
+  <p class="sub">Một góc nhỏ gom lại những lời chúc yêu thương gửi tới Hoàng, anh Minh và anh Nam 💜</p>
+  <button class="btn" id="boom">🎊 Bắn pháo giấy</button>
+  <div class="score">Bóng bay đã nổ: <b id="cnt">0</b> 🎈 — chạm vào bóng bay để làm nổ nhé!</div>
+</header>
+
+<h2>✨ Những nhân vật chính hôm nay</h2>
+<section class="heroes" id="heroes"></section>
+<p class="hint">Bấm vào ảnh tròn để chọn ảnh chân dung từ máy (ảnh chỉ lưu trên trình duyệt của bạn).</p>
+
+<h2>💌 Lời chúc gửi tới các anh em</h2>
+<section class="wishes" id="wishes"></section>
+
+<footer>Made with 💜 by Marcom team · Chúc ngày 19/11 thật vui!</footer>
+</main>
+
+<script>
+(function(){
+var people=[
+ {id:"hoang",name:"Hoàng",role:"Chàng trai năng động",init:"H"},
+ {id:"minh",name:"Anh Minh",role:"Anh cả đáng tin cậy",init:"M"},
+ {id:"nam",name:"Anh Nam",role:"Chiến thần của team",init:"N"}
+];
+var wishes=[
+ {name:"Chị Phương",init:"P",role:"Gửi 2 anh em",text:"🎉🎉🎉🎉 Chúc 2 anh em trong nhóm ngày 19/11 vui vẻ, mạnh khỏe, tiền đầy túi, tim đầy tình 🌹🎂 💜💜💜💜",tag:"@Trần Huy Hoàng @Lê Quang Minh"},
+ {name:"Chị Trang",init:"T",role:"Gửi anh em nhà mình",text:"Chang thì của ít lòng vòng… Chúc anh em nhà mình có tất cả trừ vất vả. Tặng bó hoa fake để ngắm online nha 💐"},
+ {name:"Em Huyền",init:"H",role:"Gửi 2 anh em",text:"Chúc 2 ae lương cao ví đầy, gặp nhiều may mắn nhóe ạ 🍀"},
+ {name:"Chị Nhung",init:"N",role:"Gửi anh em",text:"chúc ae ngày quốc tế đồng an"}
+];
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+
+/* Heroes */
+var hs=document.getElementById("heroes");
+people.forEach(function(p){
+ var d=document.createElement("div");d.className="hero";
+ d.innerHTML='<div class="ava" title="Chọn ảnh"><div class="in">'+p.init+'</div><em>📷</em><input type="file" accept="image/*" hidden></div><h3>'+p.name+'</h3><p>'+p.role+'</p>';
+ var in_=d.querySelector(".in"),f=d.querySelector("input");
+ function show(src){in_.innerHTML='<img alt="'+p.name+'" src="'+src+'">'}
+ var saved=store("ava_"+p.id);if(saved)show(saved);
+ d.querySelector(".ava").addEventListener("click",function(){f.click()});
+ f.addEventListener("change",function(){
+  var file=f.files[0];if(!file)return;
+  var r=new FileReader();r.onload=function(){
+   var im=new Image();im.onload=function(){
+    var c=document.createElement("canvas"),s=320;c.width=c.height=s;
+    var m=Math.min(im.width,im.height),x=(im.width-m)/2,y=(im.height-m)/2;
+    c.getContext("2d").drawImage(im,x,y,m,m,0,0,s,s);
+    var url=c.toDataURL("image/jpeg",.85);show(url);store("ava_"+p.id,url);burst(d.getBoundingClientRect().left+100,d.getBoundingClientRect().top+80,24)};
+   im.src=r.result};
+  r.readAsDataURL(file)});
+ hs.appendChild(d)});
+
+/* Wishes */
+var ws=document.getElementById("wishes");
+wishes.forEach(function(w,i){
+ var d=document.createElement("div");d.className="wish";
+ var n=parseInt(store("like_"+i)||"0",10);
+ d.innerHTML='<span class="heart" title="Thả tim">💜</span><div class="who"><div class="pic">'+w.init+'</div><div><b>'+w.name+'</b><small>'+w.role+'</small></div></div><q>“'+w.text+'”</q>'+(w.tag?'<div class="likes" style="color:#7e22ce">'+w.tag+'</div>':'')+'<div class="likes">💜 <span>'+n+'</span> tim</div>';
+ d.querySelector(".heart").addEventListener("click",function(e){n++;store("like_"+i,String(n));d.querySelector(".likes:last-child span").textContent=n;burst(e.clientX,e.clientY,14,["#c026d3","#8b5cf6","#f472b6"])});
+ ws.appendChild(d)});
+
+/* Balloons & effects */
+var sky=document.getElementById("sky"),cnt=document.getElementById("cnt"),popped=0;
+var cols=["#a855f7","#c084fc","#e879f9","#f472b6","#8b5cf6","#6366f1","#fde047","#67e8f9"];
+function burst(x,y,n,palette){
+ palette=palette||cols;
+ for(var i=0;i<n;i++){
+  var p=document.createElement("div");p.className="pop";
+  var a=Math.random()*6.283,r=40+Math.random()*90;
+  p.style.left=x+"px";p.style.top=y+"px";p.style.background=palette[i%palette.length];
+  p.style.setProperty("--dx",Math.cos(a)*r+"px");p.style.setProperty("--dy",Math.sin(a)*r+60+"px");
+  if(i%3==0)p.style.borderRadius="2px";
+  document.body.appendChild(p);setTimeout(function(el){el.remove()},850,p)}}
+function balloon(){
+ if(document.hidden)return;
+ var b=document.createElement("div"),w=46+Math.random()*34,c=cols[Math.floor(Math.random()*cols.length)];
+ b.className="balloon";b.style.width=w+"px";b.style.height=w*1.22+"px";
+ b.style.left=Math.random()*94+"%";b.style.animationDuration=(9+Math.random()*9)+"s";
+ b.innerHTML='<i style="background:'+c+';color:'+c+';border-bottom-color:'+c+'"></i><b></b>';
+ b.querySelector("i").style.borderBottomColor=c;
+ function pop(e){e.preventDefault();var r=b.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,18,[c,"#fff","#fde047"]);b.remove();popped++;cnt.textContent=popped;if(popped%10==0)boom()}
+ b.addEventListener("pointerdown",pop);
+ sky.appendChild(b);b.addEventListener("animationend",function(){b.remove()})}
+for(var i=0;i<8;i++)setTimeout(balloon,i*350);
+setInterval(balloon,1100);
+function boom(){
+ var cl=["#fde047","#f472b6","#a78bfa","#67e8f9","#fff"];
+ for(var k=0;k<6;k++)setTimeout(function(){burst(Math.random()*innerWidth,Math.random()*innerHeight*.5+60,26,cl)},k*180)}
+document.getElementById("boom").addEventListener("click",boom);
+setTimeout(boom,600);
+})();
+</script>
+</body>
+</html>
